@@ -1,10 +1,14 @@
-# PERFORMANCE TESTING REPORT
+## Title : Adaptive Performance Analysis of Digital Library Web Services Under Dynamic User Load
 
-## Adaptive Performance Monitoring of Web Services Under Dynamic User Patterns
-
-**Course:** ITT440 – Network Programming  
-**Tool Used:** Apache JMeter  
-**Target API:** https://openlibrary.org/search.json?q=harry+potter
+| Details | Information |
+|---|---|
+| Course | ITT440 – Network Programming |
+| Group | NBCS2555A |
+| Name | Mohamed Solahuddin bin Johari |
+| Student ID | 2024366005 |
+| Lecturer | Sir Shahadan Bin Saad |
+| Tool Used | Apache JMeter |
+| Target API | https://openlibrary.org/search.json |
 
 ---
 
@@ -27,16 +31,16 @@ The objectives of this project are:
 
 ## 2.1 Tools Used
 
-- Apache JMeter 5.6.3
+- Apache JMeter 5.6.3 zip
 - Java JDK
-- Windows Command Prompt
+- Windows 11
 
 ## 2.2 Target API
 
 The API used for testing:
 
 ```bash
-https://openlibrary.org/search.json?q=harry+potter
+https://openlibrary.org/search.json
 ```
 
 ## 2.3 Testing Types
@@ -55,9 +59,9 @@ https://openlibrary.org/search.json?q=harry+potter
 
 | Configuration | Value |
 |---|---|
-| Number of Threads (Users) | 12 |
-| Ramp-Up Period | 20 seconds |
-| Loop Count | 5 |
+| Number of Threads (Users) | 20 |
+| Ramp-Up Period | 10 seconds |
+| Loop Count | 3 |
 
 ### Purpose
 
@@ -95,7 +99,19 @@ The Spike Test was conducted to analyze system behavior when sudden high traffic
 
 # 4. Results and Analysis
 
-## 4.1 Load Test Result
+## 4.1 APDEX Level
+
+| APDEX Score | Level |
+|---|---|
+| 0.94 – 1.00 | Excellent |
+| 0.85 – 0.93 | Good |
+| 0.70 – 0.84 | Fair |
+| 0.50 – 0.69 | Poor |
+| 0.00 – 0.49 | Very Poor |
+
+---
+
+## 4.2 Load Test Result
 
 ### Summary
 
@@ -122,7 +138,7 @@ The Time Vs Threads graph shows that response time increased when the number of 
 
 ---
 
-## 4.2 Stress Test Result
+## 4.3 Stress Test Result
 
 ### Summary
 
@@ -134,7 +150,7 @@ The Time Vs Threads graph shows that response time increased when the number of 
 | Average Response Time | 2099.11 ms |
 | Maximum Response Time | 8760 ms |
 | Throughput | 6.80 transactions/s |
-| Error Type | 429 Too Many Requests |
+| Error Type & Number of Errors | 429 Too Many Requests (134) |
 
 ### Analysis
 
@@ -152,7 +168,7 @@ The Time Vs Threads graph shows that the response time became higher as the numb
 
 ---
 
-## 4.3 Spike Test Result
+## 4.4 Spike Test Result
 
 ### Summary
 
@@ -164,7 +180,7 @@ The Time Vs Threads graph shows that the response time became higher as the numb
 | Average Response Time | 1547.35 ms |
 | Maximum Response Time | 8796 ms |
 | Throughput | 15.19 transactions/s |
-| Error Type | 429 Too Many Requests |
+| Error Type & Number of Errors | 429 Too Many Requests (187) |
 
 ### Analysis
 
@@ -181,20 +197,23 @@ From the Response Time Percentiles graph, the response time increased sharply du
 The Time Vs Threads graph also shows unstable response times when the number of users suddenly increased, which means the system struggled to handle sudden traffic spikes efficiently.
 
 ---
+# 5. Demo Video
 
-# 5. Discussion
+https://www.youtube.com/watch?v=xofH9bl939U
+
+# 6. Discussion
 
 The performance testing results show that the OpenLibrary API was able to handle normal traffic during the Load Test without recording any failed requests. However, the response time was still considered high, resulting in a low APDEX score.
 
 During the Stress Test and Spike Test, the system performance became unstable when handling heavier traffic conditions. A large number of requests failed due to the “429 Too Many Requests” error, which indicates that the server implemented rate limiting when too many requests were received.
 
-The graphs also show that the response time increased as the number of users increased. This indicates that the API performance decreases under higher traffic conditions.
+The graphs also show that the response time increased when the number of users increased. This indicates that the API performance decreases under higher traffic conditions.
 
 Overall, the OpenLibrary API works well under normal traffic conditions, but its performance becomes unstable when handling heavy traffic and sudden spikes.
 
 ---
 
-# 6. Conclusion
+# 7. Conclusion
 
 In conclusion, Apache JMeter successfully analyzed the performance of the OpenLibrary API under different traffic conditions.
 
@@ -206,11 +225,7 @@ Overall, this project successfully demonstrated how performance testing can be u
 
 ---
 
-#Demo Video
-
-https://www.youtube.com/watch?v=xofH9bl939U
-
-# 7. References
+# 8. References
 
 Apache JMeter. (2024). *Apache JMeter user manual*. Apache Software Foundation. https://jmeter.apache.org/
 
@@ -218,6 +233,6 @@ Kelas Sir. (2024). *Apache JMeter tutorial videos* [YouTube channel]. YouTube. h
 
 OpenLibrary. (2024). *OpenLibrary API documentation*. https://openlibrary.org/developers/api
 
-Oracle. (2024). *Java documentation*. Oracle Corporation. https://www.oracle.com/java/
+Oracle. (2024). *Java documentation*. Oracle Corporation. https://www.oracle.com/java
 
 OutSystems. (2024). *The Apdex performance score*. https://success.outsystems.com/documentation/11/monitoring_and_troubleshooting_apps/the_apdex_performance_score/
